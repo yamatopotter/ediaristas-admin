@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServicoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Rotas para trabalhar com serviços
+Route::get('/servicos', [ServicoController::class, 'index'])->name('servicos.index');
+Route::get('/servicos/create', [ServicoController::class, 'create'])->name('servicos.create');
+Route::post('/servicos', [ServicoController::class, 'store'])->name('servicos.store');
