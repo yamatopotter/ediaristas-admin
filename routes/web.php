@@ -28,3 +28,5 @@ Route::get('/servicos', [ServicoController::class, 'index'])->name('servicos.ind
 Route::get('/servicos/create', [ServicoController::class, 'create'])->name('servicos.create');
 Route::get('/servicos/{servico}/edit', [ServicoController::class, 'edit'])->name('servicos.edit');
 Route::post('/servicos', [ServicoController::class, 'store'])->name('servicos.store');
+Route::put('/servicos/{servico}', [ServicoController::class, 'update'])->name('servicos.update');
+ 
