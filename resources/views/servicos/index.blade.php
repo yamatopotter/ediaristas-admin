@@ -34,7 +34,7 @@
     </table>
 
     <div class="d-flex justify-content-center ">
-        {{ $servicos->links()}}
+        {{ $servicos->links() }}
     </div>
 
     <div class="float-right">
