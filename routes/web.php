@@ -21,7 +21,7 @@ Route::get('/', [LoginController::class, 'showLoginForm']);
 
 Auth::routes();
 
-Route::middleware('auth', function(){
+Route::middleware('auth')->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::resource('usuarios', UsuarioController::class);
