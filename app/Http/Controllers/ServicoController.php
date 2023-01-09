@@ -58,8 +58,7 @@ class ServicoController extends Controller
     {
         $servico = Servico::findOrFail($id);
 
-        return view('servicos.edit')->with('servico', $servico)
-        ->with('mensagem', 'Serviço atualizado com sucesso!');
+        return view('servicos.edit')->with('servico', $servico);
     }
 
     /**
@@ -75,6 +74,7 @@ class ServicoController extends Controller
 
         $servico->update($dados);
 
-        return redirect()->route('servicos.index');
+        return redirect()->route('servicos.index')
+        ->with('mensagem', 'Serviço atualizado com sucesso!');
     }
 }
