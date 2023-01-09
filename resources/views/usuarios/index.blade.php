@@ -16,6 +16,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Email</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
@@ -24,8 +25,9 @@
                 <tr>
                     <td>{{$usuario->id}}</td>
                     <td>{{$usuario->name}}</td>
-                    <td>
-                        <a href="{{route('usuarios.edit', $usuario)}}" class="btn btn-primary">Editar</a>
+                    <td>{{$usuario->email}}</td>
+                    <td class="d-flex">
+                        <a href="{{route('usuarios.edit', $usuario)}}" class="btn btn-primary mr-1">Editar</a>
                         <form action="{{route('usuarios.destroy', $usuario) }}" method="post">
                             @method('DELETE')
                             @csrf

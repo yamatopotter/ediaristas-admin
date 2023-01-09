@@ -16,7 +16,6 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Email</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
@@ -25,7 +24,6 @@
                 <tr>
                     <td>{{$servico->id}}</td>
                     <td>{{$servico->nome}}</td>
-                    <td>{{$servico->email}}</td>
                     <td>
                         <a href="{{route('servicos.edit', $servico)}}" class="btn btn-primary">Editar</a>
                     </td>
