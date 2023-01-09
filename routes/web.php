@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\UsuarioController;
@@ -16,20 +17,20 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LoginController::class, 'showLoginForm']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth', function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('usuarios', UsuarioController::class);
-
-//Rotas para trabalhar com serviços
-Route::get('/servicos', [ServicoController::class, 'index'])->name('servicos.index');
-Route::get('/servicos/create', [ServicoController::class, 'create'])->name('servicos.create');
-Route::get('/servicos/{servico}/edit', [ServicoController::class, 'edit'])->name('servicos.edit');
-Route::post('/servicos', [ServicoController::class, 'store'])->name('servicos.store');
-Route::put('/servicos/{servico}', [ServicoController::class, 'update'])->name('servicos.update');
- 
+    Route::resource('usuarios', UsuarioController::class);
+    
+    //Rotas para trabalhar com serviços
+    Route::get('/servicos', [ServicoController::class, 'index'])->name('servicos.index');
+    Route::get('/servicos/create', [ServicoController::class, 'create'])->name('servicos.create');
+    Route::get('/servicos/{servico}/edit', [ServicoController::class, 'edit'])->name('servicos.edit');
+    Route::post('/servicos', [ServicoController::class, 'store'])->name('servicos.store');
+    Route::put('/servicos/{servico}', [ServicoController::class, 'update'])->name('servicos.update');
+     
+});
